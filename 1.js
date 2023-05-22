@@ -1,19 +1,44 @@
-import person from './index.js'
-console.log(person.greeting());
 
+class ValidationError extends Error{
 
-class Myday{
-    constructor(){
-        this.date = Date.now();
-    }
-    create = function(){
-        console.log('it was created');
-        return this.date;
+    printCustomMessage(){
+        return `Validation failed :(${this.message})`;
     }
 }
 
-const a = new Myday();
-const b = new Myday();
+// try{
+//     throw new ValidationError('Not a valid number');
+// }
+// catch(error){
+//     console.log(error);
+// }
 
-console.log(a.create());
 
+function getRectArea(width,height){
+    if(isNaN(width)||isNaN(height)){
+        throw new Error('Parameter is not a number');
+    }
+}
+
+class Person{
+    constructor(){
+        this.name = 'mooki';
+    }
+}
+
+try{
+    throw new Person();
+    
+}catch(error){
+    console.log('im mook');
+}
+
+
+
+// try{
+//     getRectArea(10,'A');
+// }catch(e){
+//     console.error(e);
+// }
+
+// getRectArea(10,'A');
